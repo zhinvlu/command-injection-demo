@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: commandinjection-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: commandinjection-app
+  template:
+    metadata:
+      labels:
+        app: commandinjection-app
+    spec:
+      containers:
+      - name: commandinjection
+        image: zhinvlu68hao/commandinjection:v1.0
+        ports:
+        - containerPort: 5000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: commandinjection-service
+spec:
+  selector:
+    app: commandinjection-app
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000
+  type: LoadBalancer
