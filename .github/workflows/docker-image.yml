@@ -33,6 +33,7 @@ jobs:
         context: .
         push: true
         tags: zhinvlu68hao/commandinjection:v1.0
+        use_enforcement_rules: true
     - name: Log in with Azure
       uses: azure/login@v2.2.0
       with:
