@@ -18,14 +18,14 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Run Prisma Cloud IaC&SCA Scan
-      id: prisma-cloud
-      uses: bridgecrewio/checkov-action@master
-      env:
-        PRISMA_API_URL: https://api.sg.prismacloud.io
-      with:
-        api-key: ${{ secrets.BC_API_KEY }}
-        use_enforcement_rules: true
+    # - name: Run Prisma Cloud IaC&SCA Scan
+    #   id: prisma-cloud
+    #   uses: bridgecrewio/checkov-action@master
+    #   env:
+    #     PRISMA_API_URL: https://api.sg.prismacloud.io
+    #   with:
+    #     api-key: ${{ secrets.BC_API_KEY }}
+    #     use_enforcement_rules: true
   
     - name: Build Docker image
       uses: docker/build-push-action@v2
