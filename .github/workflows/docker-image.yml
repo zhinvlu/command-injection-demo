@@ -8,6 +8,7 @@ on:
 
 env:
   IMAGE_NAME: zhinvlu68hao/commandinjection:${{ github.sha }}
+  SPECTRAL_DSN: ${{ secrets.SPECTRAL_DSN }}
 
 jobs:
 
