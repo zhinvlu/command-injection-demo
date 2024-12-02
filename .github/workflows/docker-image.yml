@@ -26,6 +26,11 @@ jobs:
     #   with:
     #     api-key: ${{ secrets.BC_API_KEY }}
     #     use_enforcement_rules: true
+    - name: Install and run Spectral CI
+      uses: checkpointsw/spectral-github-action@v3
+      with:
+        spectral-dsn: ${{ env.SPECTRAL_DSN }}
+        spectral-args: scan --ok --engines secrets,iac,oss --include-tags base,audit,iac
   
     - name: Build Docker image
       uses: docker/build-push-action@v2
