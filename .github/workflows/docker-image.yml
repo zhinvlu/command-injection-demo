@@ -45,28 +45,28 @@ jobs:
         pcc_pass: ${{ secrets.PCC_PASS }}
         image_name: zhinvlu68hao/commandinjection:${{ github.sha }}
 
-    - name: Log in with Azure
-      uses: azure/login@v2.2.0
-      with:
-        creds: '${{ secrets.AZURE_CREDENTIALS }}'
+    # - name: Log in with Azure
+    #   uses: azure/login@v2.2.0
+    #   with:
+    #     creds: '${{ secrets.AZURE_CREDENTIALS }}'
 
-    - name: Set AKS context
-      id: set-context
-      uses: azure/aks-set-context@v3
-      with:
-        resource-group: '${{ secrets.resource_group }}' 
-        cluster-name: '${{ secrets.cluster_name }}'
+    # - name: Set AKS context
+    #   id: set-context
+    #   uses: azure/aks-set-context@v3
+    #   with:
+    #     resource-group: '${{ secrets.resource_group }}' 
+    #     cluster-name: '${{ secrets.cluster_name }}'
 
-    - name: Setup kubectl
-      id: install-kubectl
-      uses: azure/setup-kubectl@v3
+    # - name: Setup kubectl
+    #   id: install-kubectl
+    #   uses: azure/setup-kubectl@v3
       
-    - name: Deploy to AKS
-      id: deploy-aks
-      uses: Azure/k8s-deploy@v4
-      with:
-        namespace: 'default'
-        manifests: |
-            deploy.yaml
-        images: zhinvlu68hao/commandinjection:${{ github.sha }}
-        pull-images: false         
+    # - name: Deploy to AKS
+    #   id: deploy-aks
+    #   uses: Azure/k8s-deploy@v4
+    #   with:
+    #     namespace: 'default'
+    #     manifests: |
+    #         deploy.yaml
+    #     images: zhinvlu68hao/commandinjection:${{ github.sha }}
+    #     pull-images: false         
